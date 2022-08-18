@@ -1,0 +1,36 @@
+1. Java Swing is used to create window-based applications. 
+2. javax.swing package provides classes for java swing API such as JButton, JTextField, JTextArea, JRadioButton, JCheckbox, JMenu, JColorChooser etc
+
+Hierarchy of Java Swing classes
+
+1. Each Object has component
+2. Component are two type (1. Container  2. JComponent)
+3. Container are two type	(1. Window		2. Panel)	  
+4. Window has (1. Frame	 2. Dialog)
+5. Panel has (Applet)
+6. JComponents are (JLabel, JList, JTrable, JComboBox, JSlider, JMenu, AbstractButton,JButton)
+
+	
+////////////////////Simple Java Swing Example////////////////////////////////////////////////////////////
+
+    import javax.swing.*;    //import swing package
+    
+    public class FirstSwingExample 
+    {  
+      public static void main(String[] args) 
+      {  
+        JFrame f = new JFrame();  //creating instance(object) of JFrame  
+
+        JButton b = new JButton("click"); //creating instance of JButton  
+        b.setBounds(130,100,100, 40);  //x position, y position, button width, button height  
+
+        f.add(b);  //adding button in JFrame  
+
+        f.setSize(400,500); //frame size 400 width and 500 height  
+        f.setLayout(null); //using no layout managers  
+        f.setVisible(true); //making the frame visible  
+      }  
+    }  
+		                  
+
+      
