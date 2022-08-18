@@ -1,0 +1,109 @@
+Upper Case
+---------------------------------
+1. select text
+2. ctrl + shift + x
+
+Lower Case 
+---------------------------------
+1. select text
+2. ctrl + shift + y
+
+System.out.println('')
+---------------------------------
+1. write "system"   
+2. ctrl + space
+
+main()
+---------------------------------
+1. write "main"
+2. ctrl + space
+
+for loop
+---------------------------------
+1. write "for"
+2. ctrl + space
+3. select "for -use index on array"
+
+foreach loop
+---------------------------------
+1. write "foreach"
+2. ctrl + space
+
+while loop
+---------------------------------
+1. write "while"
+2. ctrl + space
+3. select "while loop with condition"
+
+do ... while loop
+---------------------------------
+1. write "do"
+2. ctrl + space
+3. select "do - do while statement"
+
+if___ else
+---------------------------------
+1. write "if"
+2. ctrl + space
+3. select "if - if statement"
+
+selected code take up or down
+---------------------------------
+1. select code
+2. alt + up  // take up
+3. alt + down // take down
+
+try{} catch {}
+---------------------------------
+1. select code
+2. alt + shift + z
+3. select "try/catch block"
+
+setter and getter generate to access private variable of class
+--------------------------------------------------------------
+1. write variable as "private String name;"
+2. alt + shift + s, r
+3. or right click --> Source --> Generate Getter and Setter
+
+create Constructor of Class
+---------------------------------
+right click --> Source --> Generate constructor using fields
+
+Formatting Code in proper alignment
+---------------------------------
+ctrl + shift + f
+
+import package
+---------------------------------
+ctrl + shift + o
+
+Commenting
+---------------------------------
+1. select code 
+2. ctrl + /      //comment in/out
+3. ctrl + shift + /   //multi line comment
+
+Rename variable
+---------------------------------
+1. select variable
+2. alt + shift + R
+3. rename it
+
+Go particular line in code
+---------------------------------
+ctrl + L
+
+Find particular method
+---------------------------------
+ctrl + o
+
+Make a new method by extracting
+---------------------------------
+1. select code
+2. alt + shift + m
+3. give "Method Name" --> ok
+
+
+
+
+
