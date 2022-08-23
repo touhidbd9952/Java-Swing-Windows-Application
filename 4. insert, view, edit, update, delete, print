@@ -1,0 +1,155 @@
+//////Create New Project://////////////////////////////////////////////////////////
+File  New project Java with Ant  Java Application 
+ Next 
+ Project Name: StudentManagement 
+ create main class : check
+ finish
+
+//////Create From:////////////////////////////////////////////////////////////////
+Right click on  “your Project Name”  New  JFrame Form 
+class Name: Student 
+ package: com.student.management 
+ finish
+
+//////Student Form (Design)://///////////////////////////////////////////////////
+a.	Right click on form  set layout  Absolute Layout
+b.	Right click on from(Absolute Layout) properties  code
+Designer Size: 1000:800
+Generate Center: check it
+close
+
+//////Exit Function or Form close function//////////////////////////////////////
+Right click on “Exit” button  Events  Action 
+
+private  JFrame frameobj;
+private void jbtnExitActionPerformed(Java.awt.event.ActionEvent  evt)
+{
+	frameobj = new JFrame(Exit);
+	if(JOptionPane.showConfirmDialog(frameobj, 
+“confirm if you want to exit”, 
+“Student”, JOptionPane.YES_NO_OPTION)==JOPTIONPane.YES_OPTION)
+{
+		System.exit(0);
+}
+} 
+
+//////Reset Form//////////////////////////////////////////////////////////////
+Private void jbtnResetActionPerform(Java.awt.event.ActionEvent  evt)
+{
+	txtStudentID.setText(“ ”);
+	.
+	.
+}
+
+//////Mysql Database Connection /////////////////////////////////////////////
+
+Private static final String username = “root”;
+Private static final String password = “”;
+Private static final string dbConn = “jdbc:mysql://localhost:3306/studentdb”;
+
+Sonnection    sqlConn = null;
+PreparedStatement    pst = null;
+ResultSet    rs  = null;
+
+Try
+{
+ 	Class.forName(“com.mysql.jdbd.Driver”);
+
+sqlConn = DriverManager.getConnection(dbConn, username, password);
+pst = sqlConn.prepareStatement(“select * from student”);
+rs = pst.executeQuery();
+
+ResultSetMetaData   stData = rs.getMetaData();
+int  q = stData.getColumnCount();
+
+DefaultTableModel  RecordTable  = (DefaultTableModel) JTable.getModel();
+RecordTable.setRowCount(0);
+
+While(rs.next())
+{
+ 	Vector   columnData = new Vector();
+	For(int i=1; i<=q; i++)
+	{
+		columnData.add(rs.getString(“id”));
+		columnData.add(rs.getString(“firstname”));
+		.
+		.
+	}
+	RecordTable.addRow(columnData);
+}
+}
+Catch(Exception  ex)
+{
+ 	JoptionPane.ShowMessageDialog(null, ex);
+}
+
+
+//////Insert data/////////////////////////////////////////////////////////////////
+Class.forname(“com.myql.jdbc.Driver”);
+sqlConn = DriverManager.getConnection(dbConn, username,password);
+pst = sqlConn.prepareStatement(“inset into student(studentID,Firstname,Surname,Adress,Postcode, 
+         Phone) value(?,?,?,?,?)”);
+Pst.setString(1, txtStudentID.getText());
+Pst.setString(2, txtFirstname.getText());
+.
+.
+Pst.execute Update();
+
+JoptionPane.showMessageDialog(This, “Record Added”);
+
+
+//////Update Data/////////////////////////////////////////////////////////////////
+pst = sqlConn.prepareStatement(“update student set studentID=?,Firstname=?,Surname=?,Adress=?,Postcode=?, 
+         Phone=?”);
+Pst.setString(1, txtStudentID.getText());
+Pst.setString(2, txtFirstname.getText());
+.
+.
+Pst.execute Update();
+
+JoptionPane.showMessageDialog(This, “Record Updated”);
+
+
+//////get selected table row index on mouse click event/////////////////////////
+DefaultTableModel  RecordTable  = (DefaultTableModel) jTable1.getModel();
+int selectedRows  = jTable1.getSelectedRow();
+txtStudentID.setText(RecordTable.getValueAt(selectedRows, 1).toString());
+txtFirstname.seText(RecordTable.getValueAt(selectedRows,2).toString());
+.
+.
+
+///////////Delete Data/////////////////////////////////////////////////////////
+Id = Integer.parsInt(RecordTable.getValueAt(selectedRows,0).toString());
+Pst = sqlConn.perseStatement(“delete from student where id=?”);
+Pst.setInt(1,id);
+Pst.executeUpdate();
+
+
+///////////Exception Handling/////////////////////////////////////////////////
+Catch(ClassNotFoundException  ex)
+{
+	Java.util.logging.logger.getLogger(Java_MysqlConn.class.getName()).Log(java.util.Logging.Level.SEVERE, null, ex);
+}
+Catch(SQLException  ex)
+{
+	Java.util.logging.logger.getLogger(Java_MysqlConn.class.getName()).Log(java.util.Logging.Level.SEVERE, null, ex);
+}
+
+///////////PrintFunction////////////////////////////////////////////////////////
+MessageFormat   header = new  MessageFormat(“Printing in progress”);
+MessageFormat   footer = new MessageFormat(“page{0, number, integer}”);
+
+Try
+{
+ 	jTable1.print(JTable.PrintMode.NORMAL, header, footer);
+}
+Catch(java.awt.printException  e)
+{
+   	System.errformat(“No printer found”, e.getMessage());
+}
+
+
+
+
+
+
